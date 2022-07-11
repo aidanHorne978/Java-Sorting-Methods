@@ -1,0 +1,48 @@
+package week10;
+
+/** public class MergeSort which.
+  * extends Sorter to implement the Merge
+  * Sort method.
+  * @author Aidan
+  */
+
+public class MergeSort extends Sorter {
+
+    /** public constructor MergeSort to.
+     *  set an Integer array to the nums.
+     *  as the super.
+     *  @param nums to get the numbers for sorting.
+     */
+
+    private int[] temp;
+
+    public MergeSort (Integer[] nums) {
+        super(nums);
+    }
+
+    /** public void method sortNums() to implement.
+     *  the merge sort method and sort the numbers.
+     */
+    
+    public void sortNums() {
+        this.temp = new int[nums.length];
+        comparisons = 0;
+        mergesorter(0, nums.length - 1);
+    }
+
+    public void MergeSorter(int left, int right) {
+        if (left < right) {
+            comparisons++;
+            int mid = (left + right) / 2;
+            MergeSorter(left, mid);
+            MergeSorter(mid + 1, right);
+            Merge(left, mid + 1, right);
+        }
+    }
+    
+     public void merge(int left, int mid, int right) {
+        for (int i = left; i < right; i++) {
+            this.temp[i] = nums[i];
+        }
+    }
+}
